@@ -3,11 +3,11 @@ type GameState = GameTile[][]
 type Transformation = (initial: GameState) => GameState | boolean
 
 const level: GameState = [
-    ['b', 'g', 'x', '', ''],
+    ['', 'x', 'b', '', 'g'],
+    ['', 'x', '', '', ''],
+    ['x', 'x', '', '', ''],
     ['', '', '', '', ''],
-    ['', '', '', '', ''],
-    ['', '', '', '', ''],
-    ['b', 'g', '', '', '']
+    ['', '', '', '', 'g']
 ]
 
 console.log('Board:', level)
@@ -192,13 +192,13 @@ const search = (
     return null
 }
 
-const answer = (() => {
-    for (const depth of Array(maxDepth).keys()) {
-        const result = search(level, depth)
-        if (result) return result
-    }
-    return null
-})()
+const answer = Array(maxDepth)
+    .keys()
+    .reduce<Directions[] | null>((acc, depth) => {
+        if (acc) return acc
+        return search(level, depth)
+    }, null)
+
 console.log('Moves:', answer)
 
 let board: GameState | boolean = level
