@@ -1,0 +1,19 @@
+# build output
+website/dist/
+# generated types
+website/.astro/
+
+# dependencies
+website/node_modules/
+
+# logs
+website/npm-debug.log*
+website/yarn-debug.log*
+website/yarn-error.log*
+website/pnpm-debug.log*
+
+
+# environment variables
+website/.env
+website/.env.production
+

@@ -3,11 +3,11 @@ type GameState = GameTile[][]
 type Transformation = (initial: GameState) => GameState | boolean
 
 const level: GameState = [
-    ['', 'x', 'b', '', 'g'],
-    ['', 'x', '', '', ''],
-    ['x', 'x', '', '', ''],
-    ['', '', '', '', ''],
-    ['', '', '', '', 'g']
+    ['g', '', 'x', '', ''],
+    ['g', 'x', 'x', '', ''],
+    ['b', 'x', '', '', ''],
+    ['b', '', '', '', ''],
+    ['b', '', '', '', '']
 ]
 
 console.log('Board:', level)
